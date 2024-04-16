@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="1500" pageHeight="842" columnWidth="1420" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="1f4b67a5-7518-4077-b2dd-398788b0355c">
+	<property name="ireport.zoom" value="1.6963904734899393"/>
+	<property name="ireport.x" value="112"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="totalAmountReceive" class="java.lang.String"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="patientName" class="java.lang.String">
+		<fieldDescription><![CDATA[patientName]]></fieldDescription>
+	</field>
+	<field name="vouNo" class="java.lang.String">
+		<fieldDescription><![CDATA[vouNo]]></fieldDescription>
+	</field>
+	<field name="totalPurchaseRate" class="java.lang.String">
+		<fieldDescription><![CDATA[totalPurchaseRate]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.String">
+		<fieldDescription><![CDATA[amount]]></fieldDescription>
+	</field>
+	<field name="type" class="java.lang.String">
+		<fieldDescription><![CDATA[type]]></fieldDescription>
+	</field>
+	<field name="vendorAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[vendorAddress]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="transType" class="java.lang.String">
+		<fieldDescription><![CDATA[transType]]></fieldDescription>
+	</field>
+	<field name="amtReceive" class="java.lang.String">
+		<fieldDescription><![CDATA[amtReceive]]></fieldDescription>
+	</field>
+	<field name="amtBalance" class="java.lang.String">
+		<fieldDescription><![CDATA[amtBalance]]></fieldDescription>
+	</field>
+	<field name="currentAmtBal" class="java.lang.String">
+		<fieldDescription><![CDATA[currentAmtBal]]></fieldDescription>
+	</field>
+	<title>
+		<band height="63" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="1215" height="1" uuid="9660e045-247b-47cc-85c5-29ff7d097497"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="10" width="620" height="30" uuid="dbd6d1ff-dc34-4474-a6dc-3b11a9f3b0b2"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="229" y="40" width="32" height="20" uuid="3b71aa42-f1a6-4d28-b3b2-1e41454e4dfa"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="261" y="40" width="59" height="20" uuid="a610ef47-bc72-435f-a3f3-f4edce030d24"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="40" width="10" height="20" uuid="b131792f-7df2-466a-a363-c10efb110893"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="40" width="21" height="20" uuid="a983b423-56a2-4d6f-8b02-29f54446d1e5"/>
+				<text><![CDATA[To:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="351" y="40" width="84" height="20" uuid="ea71e463-c206-4d25-8e61-914f19426d64"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="3" width="1213" height="15" backcolor="#70A9A9" uuid="5c23c67b-bb18-4094-a91e-feeaf102450a"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+				]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="3" width="71" height="15" uuid="2d334eda-3d27-4bff-8ff5-f5e433800128"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3" width="103" height="15" uuid="bfac66ab-7a14-4583-a5ff-cf1bfd41d680"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="563" y="3" width="119" height="15" uuid="e7beb559-b861-4c61-a54f-9026d9901cbf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="261" y="3" width="203" height="15" uuid="1c101e7a-4529-4070-bf90-39cb78944e03"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="3" width="99" height="15" uuid="475dd3e6-a6bb-48d4-a909-b8b39516cd16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="3" width="87" height="18" uuid="76b94b45-1b40-4789-b9e0-17aaf90fa15c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="810" y="3" width="82" height="15" uuid="8c2b406e-863b-4562-b11a-42417c38d287"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trans Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="893" y="3" width="82" height="15" uuid="7ce54203-e0b7-4aa0-bfce-dce993f27bb5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt Receive]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="975" y="3" width="97" height="15" uuid="367c91b0-1da6-4c97-97c2-899ba313a401"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1072" y="3" width="143" height="15" uuid="88c92d8d-011c-475b-b248-183e379ec2a0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Current Amt Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="682" y="3" width="128" height="15" uuid="f63c33c4-fa05-4204-94eb-22868389efd8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Purchase Rate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="1215" height="14" backcolor="#E5ECF9" uuid="df1172c6-9b75-49c0-9006-ce89508058c0"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+				]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="2" width="101" height="15" uuid="e62a80f2-d886-4a03-a474-cdcbf7a96ee7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vouNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="2" width="71" height="15" uuid="561b61cc-c56d-481a-ac31-f13a402d1eb5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="563" y="2" width="119" height="15" uuid="f12b9e58-936c-4c40-91b4-688b255c941e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="2" width="203" height="15" uuid="23fbb400-1abd-4245-89dc-7cb2efe6967a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{patientName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="2" width="99" height="15" uuid="11cf83f7-a377-491c-866c-010df32a1d50"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vendorAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="2" width="87" height="15" uuid="7d622e30-1dd0-4821-9778-ef54f09793ad"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="811" y="2" width="82" height="15" uuid="2f978ecd-d362-4fb4-b901-d1b6a11f8151"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="893" y="2" width="82" height="15" uuid="c9a5f71c-cea1-4777-8951-b1aad32ffec6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amtReceive}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="975" y="2" width="97" height="15" uuid="47252cc1-bc64-4b9f-80e9-0235f54a0936"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{amtBalance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1072" y="2" width="143" height="15" uuid="38e45841-b60a-4344-87ec-9a1370e88a0f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{currentAmtBal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="682" y="2" width="128" height="15" uuid="d6302ddd-2412-4ead-9bec-e2ae2aad136b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalPurchaseRate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="833" y="30" width="87" height="20" uuid="f1d9c226-dcf1-44df-bd29-44a4b1863040"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="727" y="30" width="83" height="20" uuid="3d2d2768-db31-495c-ae42-72d582a81f27"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="30" width="1215" height="1" uuid="022c61d8-9bbc-40db-9f06-5923e62ff14e"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="97">
+			<textField>
+				<reportElement mode="Opaque" x="1077" y="17" width="138" height="18" backcolor="#70A9A9" uuid="46e16f29-65fd-40b6-883c-febcff4402e9"/>
+				<textFieldExpression><![CDATA[$P{totalAmount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="975" y="17" width="97" height="18" backcolor="#70A9A9" uuid="df489b70-c61e-4597-bdae-c8cc75884295"/>
+				<text><![CDATA[Total Net Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="975" y="63" width="97" height="18" backcolor="#70A9A9" uuid="b58a0093-d8e4-4aa4-a07e-42b5c1560fe2"/>
+				<text><![CDATA[Total Amount Receive]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="1077" y="63" width="138" height="18" backcolor="#70A9A9" uuid="ca2e8b8d-0040-42d3-ba48-1053e180ca08"/>
+				<textFieldExpression><![CDATA[$P{totalAmountReceive}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

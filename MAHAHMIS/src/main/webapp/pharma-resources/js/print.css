@@ -1,0 +1,48 @@
+/*@page {
+	size: A4;
+	margin-bottom: 0px;
+	 
+}
+
+@media print {
+	.page {
+		border: initial;
+		border-radius: initial;
+		width: initial;
+		min-height: initial;
+		box-shadow: initial;
+		background: initial;
+		page-break-after: always;
+	}
+}  
+@media print {
+	@page {
+		size: A4 portrait; @ top-left { content : 'How r U?';
+		page-break-after: always;
+	}
+}
+} */
+@media screen {
+	div.divHeater {
+		display: none;
+	}
+}
+
+@media print {
+	div.divHeater {
+		position: fixed;
+		top: 0px;
+		page-break-after: always;
+	}
+}
+ @page {
+	margin-left: 32pt;
+	margin-right: 32pt;
+	@top { content: flow(header); }
+
+}
+.divHeater
+{	flow: static(header);
+	display:block; 
+	height:auto;
+} 

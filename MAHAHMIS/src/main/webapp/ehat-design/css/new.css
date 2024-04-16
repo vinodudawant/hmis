@@ -1,0 +1,373 @@
+@charset "utf-8";
+/* CSS Document */
+
+.panel_bg{ background:#f1f0f6 !important;}
+.nav_home > li > a {
+  position: relative;
+  display: block;
+  padding: 0px 3px;
+  line-height: 2.429 !important;
+}
+
+.currentepisodescroll{
+	max-height: 522px;
+
+overflow: auto;
+
+scrollbar-width: none;
+}
+
+
+
+#content .pageheaderfordd{
+	background: none repeat scroll 0 0 #FFFFFF;
+
+border-bottom-color: #cdd2d2;
+
+color: #000000;
+
+margin: 0 1px 0px;
+
+min-height: 25px;
+
+overflow: hidden;
+
+padding: 0 20px;
+
+position: relative;
+
+height: 25px;
+}
+
+.dynamicstructurescroll{
+	max-height:250px;
+	height:100px;
+	overflow:auto;
+	scrollbar-width: thin;
+}
+.tabledynamicscroll{
+	max-height:170px;
+	overflow:auto;
+	scrollbar-width: thin;
+}
+
+.tabledynamicscroll {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+}
+.tabledynamicscroll th, td {
+  padding: 0.25rem;
+}
+.tabledynamicscroll red th {
+  background: red;
+  color: white;
+}
+.tabledynamicscroll tr.green th {
+  background: green;
+  color: white;
+}
+.tabledynamicscroll tr.purple th {
+  background: purple;
+  color: white;
+}
+.tabledynamicscroll th {
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+.coversheettables{
+		max-height:170px;
+	overflow:auto;
+	scrollbar-width: thin;
+}
+
+.cursorpointer{
+	cursor:pointer;
+}
+
+.coversheettables th, td {
+  padding: 0.25rem;
+}
+.coversheettables red th {
+  background: red;
+  color: white;
+}
+.coversheettables tr.green th {
+  background: green;
+  color: white;
+}
+.coversheettables tr.purple th {
+  background: purple;
+  color: white;
+}
+.coversheettables th {
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+.sidetablescroll{
+	max-height:270px;
+	overflow:auto;
+	scrollbar-width: thin;
+}
+
+
+
+.sidetablescroll th, td {
+  padding: 0.25rem;
+}
+.sidetablescroll red th {
+  background: red;
+  color: white;
+}
+.sidetablescroll tr.green th {
+  background: green;
+  color: white;
+}
+.sidetablescroll tr.purple th {
+  background: purple;
+  color: white;
+}
+.sidetablescroll th {
+  background: #f1f0f6;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+
+.box-hight{background:#fe9d58;
+height: 36px;
+font-size: 15px;
+line-height: 36px;}
+.box-hight2{background:#777985;
+height: 36px;
+font-size: 10px;
+line-height: 36px;}
+.home_table  > thead > tr > th, .home_table  > tbody > tr > th, .home_table  > tfoot > tr > th, .home_table  > home_table  > tr > td, .home_table  > tbody > tr > td, .home_table  > tfoot > tr > td {padding: 5px !important;}
+.left_body{position: static;
+
+overflow: hidden;
+background:#f1f0f6;
+height: 600px;}
+/*-------------------scrollbar------------------------*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 6px;
+    height:5px;
+}
+::-webkit-scrollbar-track {
+    background:#eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #cfcdd0 inset;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+    background:#999;
+    border: thin solid gray;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:#7d7d7d;
+}           
+
+/*-------------------scrollbar------------------------*/
+.count_tital{ font-size:10px; font-weight:600; color:#333; margin-top:10px;}
+.padd_o{ margin-right:4%;}
+
+.box-count {
+
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid     transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+
+    padding: 5px 8px;
+
+    line-height: 1.428571429;
+    border-radius: 1px;
+
+}
+.box-count .label.label-right {
+    right: 7px;}
+
+.box-count .label {
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    box-shadow: none;
+    color: 
+    #FFFFFF !important;
+    font-size: 11px !important;
+    font-weight: 300;
+    padding: 3px 7px;
+top: 0;
+    position: absolute;
+    text-shadow: none;
+}
+
+.noteBox {
+	background: #fafafa;
+	color: #555555;
+	border-color: #dadada;
+	margin-bottom:10px;
+}
+.patHeader {
+
+    font-size: 11px;
+    line-height: 15px;
+    font-family:Helvetica;
+
+}
+.top_labels{padding: 10px;
+
+margin-bottom: 5px;
+
+height:auto;
+
+background:
+#f1f0f8;
+
+color:
+#555555c2;}
+
+.label-green {
+  background-color: #66b28b;
+}
+.label-orange {
+  background-color: #e57d4a;
+}
+.label-blue {
+  background-color: #34a1b6;
+}
+.label-yello {
+  background-color: #90c445;
+}
+.two > ul > li { display:inline-block; list-style:none;}
+#content .breadcrumb1 > li + li:before {
+  color: #333;
+  display: inline;
+  font-size: 16px;
+  font-family: FontAwesome;
+  height: auto;
+  content: "\f105";
+  font-weight: 300;
+  text-shadow: none;
+  padding: 0 5px;
+}
+.pad-top10{ padding-top:10px;}
+.space{ margin-top:10px;}
+.center_wrapper{overflow:auto;max-height:520px;scrollbar-width:thin;}
+.namedetail p{ font-size:10px;  margin-bottom:10px;color:
+#555555c2;}
+.right-wapper{ overflow: auto; padding:6px}
+.tabel-height{height: 190px;overflow: auto;scrollbar-width: thin;}
+
+/* Smartphones (portrait and landscape) ---------- */
+@media screen and (min-width: 320px) and (max-width: 480px){
+ .left_body {
+
+    position: static;
+    overflow: hidden;
+    background: 
+
+    #f1f0f6;
+    height: auto !important;
+	margin-bottom:10px;
+
+}
+.tabs-left > .nav-tabs > li, .tabs-right > .nav-tabs > li {
+
+    float: left !important;
+
+} 
+
+
+}
+/* Smartphones (portrait) ---------- */
+@media screen and (max-width: 767px){
+   .p-r{float:none !important;}
+   .left_body {
+
+    position: static;
+    overflow: hidden;
+    background: #f1f0f6;
+    height:auto;
+	padding-bottom:10px;
+
+}
+}
+
+
+
+
+/* Smartphones (portrait) ---------- */
+@media screen and (max-width: 320px){
+    /* styles */
+}
+/* Smartphones (landscape) ---------- */
+@media screen and (min-width: 321px){
+    /* styles */
+}
+/* Tablets, iPads (portrait and landscape) ---------- */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /* styles */
+}
+/* Tablets, iPads (portrait) ---------- */
+@media screen and (min-width: 768px){
+    /* styles */
+}
+/* Tablets, iPads (landscape) ---------- */
+@media screen and (min-width: 1024px){
+    /* styles */
+}
+/* Desktops and laptops ---------- */
+@media screen and (min-width: 1224px){
+    /* styles */
+}
+/* Large screens ---------- */
+@media screen and (min-width: 1824px){
+    /* styles */
+}
+.patHeader1 {
+
+    font-size: 11px;
+    line-height: 15px;
+	font-weight: bold;
+}
+.top_labels1
+{
+padding: 10px;
+font-weight: bold;
+
+margin-bottom: 5px;
+
+height:auto;
+
+background:
+#f1f0f8;
+
+color:
+#555555;}
+

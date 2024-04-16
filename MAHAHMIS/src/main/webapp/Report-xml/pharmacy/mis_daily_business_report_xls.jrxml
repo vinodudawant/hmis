@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" language="groovy" pageWidth="2300" pageHeight="595" orientation="Landscape" columnWidth="2260" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="878dfef0-a9df-4d0f-b556-b7aff9690bf9">
+	<property name="ireport.zoom" value="1.0000000000000262"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="totalSale" class="java.lang.String"/>
+	<parameter name="totalPurchase" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="counterSale" class="java.lang.String"/>
+	<field name="cashCreditSale" class="java.lang.String"/>
+	<field name="creditSale" class="java.lang.String"/>
+	<field name="cashSale" class="java.lang.String"/>
+	<field name="cashDiscount" class="java.lang.String"/>
+	<field name="itemDiscount" class="java.lang.String"/>
+	<field name="creditNote" class="java.lang.String"/>
+	<field name="debitNote" class="java.lang.String"/>
+	<field name="cashPurchase" class="java.lang.String"/>
+	<field name="cashCreditPurchase" class="java.lang.String"/>
+	<field name="cashReceipt" class="java.lang.String"/>
+	<field name="cashPaid" class="java.lang.String"/>
+	<field name="chequeReceipt" class="java.lang.String"/>
+	<field name="chequePaid" class="java.lang.String"/>
+	<field name="profitAmount" class="java.lang.String"/>
+	<field name="profitPer" class="java.lang.String"/>
+	<title>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement x="52" y="21" width="439" height="20" uuid="ff173971-fdbe-47d3-9918-1afee69aaf7c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="53" y="52" width="105" height="20" forecolor="#736343" uuid="e8387bf3-6b43-495e-8ce7-e8a822b6dd6a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[For]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="52" width="68" height="20" uuid="7f177e44-1d73-4382-8e41-052eb495b0d9"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="226" y="52" width="92" height="20" forecolor="#736343" uuid="6e07a77c-8142-4a84-8940-2afa06f15ebf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="52" width="111" height="20" uuid="9195eefd-a61e-4bd9-ae3d-ba946dc16d39"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="429" y="0" width="62" height="15" forecolor="#736343" uuid="156f33cd-c3d6-4307-90a0-e9e2015bb8eb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="491" y="0" width="84" height="15" forecolor="#736343" uuid="a7c0c099-0c15-4bcb-89d0-6fbdcd2eb871"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="226" y="0" width="92" height="15" forecolor="#736343" uuid="fd526dfb-23dd-4a7f-9d78-a29feb2a64fc"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Credit Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="0" width="111" height="15" forecolor="#736343" uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cunter Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="575" y="0" width="78" height="15" forecolor="#736343" uuid="42d127f7-b16d-4a00-b00b-dc6acbdedd07"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Item Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="53" y="0" width="105" height="15" forecolor="#736343" uuid="65b3240a-d14c-4afb-bae4-d091d63df031"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="0" width="68" height="15" forecolor="#736343" uuid="1546e341-fc36-4065-93cd-b306b95407ca"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash/Credit Sale]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="653" y="0" width="78" height="15" forecolor="#736343" uuid="b6d96195-160f-44e3-892d-c9c0fc7d5262"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="731" y="0" width="78" height="15" forecolor="#736343" uuid="6e726829-50ca-4c5a-8de1-204f32d5f122"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Credit Notes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="809" y="0" width="78" height="15" forecolor="#736343" uuid="06d66ace-b5c6-428a-aa69-42cb2d146398"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Debit Notes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="887" y="0" width="79" height="15" forecolor="#736343" uuid="025a4e4a-3d89-4ec0-be1d-f3221b65d671"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Purchase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="966" y="0" width="106" height="15" forecolor="#736343" uuid="64c40924-8242-46a4-86eb-15296604baf3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash/Credit Purchase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1072" y="0" width="82" height="15" forecolor="#736343" uuid="564f4380-55b1-406b-8cd6-87b8c0338ba2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Purchase]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1153" y="0" width="84" height="15" forecolor="#736343" uuid="efd66c90-2a4f-44b2-a14e-3e4bc5b38225"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Receipts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1237" y="0" width="84" height="15" forecolor="#736343" uuid="d814c85c-7d13-44a0-996d-a6eb60a17b4e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Paid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1321" y="0" width="84" height="15" forecolor="#736343" uuid="7d9c124c-602d-49e1-9aa9-44d0c07dd051"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cheque Receipts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1405" y="0" width="84" height="15" forecolor="#736343" uuid="7b896a14-7106-41dd-9d32-c75b99826c12"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cheque Paid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1489" y="0" width="133" height="15" forecolor="#736343" uuid="b8198713-d557-4f3f-ad38-0d975ed3a9c7"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Post Dated Cheques Given]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1622" y="0" width="79" height="15" forecolor="#736343" uuid="f8a5b1ea-fba7-4407-9ca9-66f643fc386c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sundry Debtors]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1701" y="0" width="85" height="15" forecolor="#736343" uuid="c8daf74c-9150-47a2-bf56-aa4ba5da5d56"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sundry Creditors]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1786" y="0" width="84" height="15" forecolor="#736343" uuid="754238df-2e44-4cae-a87c-f4d9ecea7013"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Closing Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1870" y="0" width="84" height="15" forecolor="#736343" uuid="c9fd0f93-088b-415f-85e8-1522d631bf2e"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Expired Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1954" y="0" width="84" height="15" forecolor="#736343" uuid="f3a918d7-2639-47c9-bc78-c51a618dab23"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Pending CC Bill]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="2038" y="0" width="61" height="15" forecolor="#736343" uuid="56b20af8-0428-4792-8730-18ac285a4be8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Proffit Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="2099" y="0" width="61" height="15" forecolor="#736343" uuid="b2603901-ba46-4b31-b09b-dab2e22104e2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Proffit%]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="2260" height="39" uuid="1f9cfa19-8525-4d44-8e2d-f79746acc230"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="318" y="0" width="111" height="15" uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{counterSale}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="429" y="0" width="62" height="15" uuid="8b6f8a47-7cef-455d-9aa5-87c8648e2c1f"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{totalSale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="491" y="0" width="84" height="15" uuid="c0744180-bb8d-4888-8c2a-7a6dd834caa8"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashDiscount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="226" y="0" width="92" height="15" uuid="7cde823a-8bc4-4b50-8527-31acc74a4a7e"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{creditSale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="575" y="0" width="78" height="15" uuid="17a3f070-b9af-470f-a63c-ab83558df58f"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{itemDiscount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="53" y="0" width="105" height="15" uuid="ad8fc44a-2248-4e72-93af-781d3dcf508c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashSale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="158" y="0" width="68" height="15" uuid="7bc53d56-70be-4668-a7d6-7e508c42c3b4"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashCreditSale}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="653" y="0" width="78" height="15" uuid="c356cae7-b222-4fa1-a174-e4cad92af143"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="731" y="0" width="78" height="15" uuid="ee7f60e5-c9d3-4545-9e81-ab1e6bfdb0b6"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{creditNote}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="809" y="0" width="78" height="15" uuid="2756f3a2-ffd7-4e26-8605-c9915d126a9c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{debitNote}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="887" y="0" width="79" height="15" uuid="bfb4c156-c830-4d2b-b129-38e68b444482"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashPurchase}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="966" y="0" width="106" height="15" uuid="8ce94712-b2a9-4049-8002-d86c9fdab193"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashCreditPurchase}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1072" y="0" width="82" height="15" uuid="2e4c8e2f-411a-43c7-acd9-f1a523dec2ed"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{totalPurchase}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1153" y="0" width="84" height="15" uuid="c672885e-9a10-4f02-9ec8-193eea5b1b19"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashReceipt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1237" y="0" width="84" height="15" uuid="70370e5b-39df-4abe-8ad0-9e193d526bd0"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cashPaid}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1321" y="0" width="84" height="15" uuid="8a35227d-ae96-4e20-9b86-1d43cf8d860b"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{chequeReceipt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1405" y="0" width="84" height="15" uuid="b7c51421-9c48-4ea0-9b46-830a883a93a6"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{chequePaid}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1489" y="0" width="133" height="15" uuid="491b340a-4166-4401-a3b9-fb45d59cec58"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="1622" y="0" width="79" height="15" uuid="72f32dd8-4d06-4b85-b211-ea6abb6027b7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="1701" y="0" width="85" height="15" uuid="ce2280c2-3768-4eec-8436-7c1af4ca5748"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="1786" y="0" width="84" height="15" uuid="4ce405f1-21e2-4466-9ddf-0832831096ec"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="1870" y="0" width="84" height="15" uuid="8d91187d-178b-4edc-a4cb-8e1b39ba4db0"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="1954" y="0" width="84" height="15" uuid="5c8f52ac-850c-46a9-a642-9a9203e4fb28"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="2038" y="0" width="61" height="15" uuid="9c829583-f262-4b2c-8a84-d3c10ebce5b0"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+				<textField>
+					<reportElement x="2099" y="0" width="61" height="15" uuid="63025c71-2922-491a-9a44-4c58f4524e65"/>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50"/>
+	</columnFooter>
+</jasperReport>

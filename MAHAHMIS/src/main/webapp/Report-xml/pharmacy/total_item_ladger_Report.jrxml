@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="1200" pageHeight="15000" columnWidth="1120" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="1f4b67a5-7518-4077-b2dd-398788b0355c">
+	<property name="ireport.zoom" value="1.6105100000000248"/>
+	<property name="ireport.x" value="71"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Fri Jul 31 15:06:54 IST 2015\ncallouts.1.text=com8 31/7/15 3\:05 PM\ncallouts.1.bounds=345,460,197,56"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="batchCode" class="java.lang.String"/>
+	<field name="stock" class="java.lang.String"/>
+	<field name="vendorName" class="java.lang.String"/>
+	<field name="productName" class="java.lang.String"/>
+	<field name="qty" class="java.lang.String"/>
+	<field name="receiptNo" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<title>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="-41" width="1120" height="1" uuid="9660e045-247b-47cc-85c5-29ff7d097497"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="-30" width="847" height="30" uuid="dbd6d1ff-dc34-4474-a6dc-3b11a9f3b0b2"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="13" width="82" height="20" uuid="ccec5831-fe0b-45c8-bd58-72ebf4665a7d"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="13" width="76" height="20" uuid="24c2d6f2-98f7-4912-9fc5-af54bbe01427"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="276" y="13" width="45" height="20" uuid="ff65b329-0741-4d3d-849c-13e22c5f3dc5"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="13" width="22" height="20" uuid="901de18f-d61a-46e2-9c80-ff735c123dc7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="13" width="148" height="15" uuid="8cde0361-fa1e-4e4f-9716-149f6dd6bd9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase Entry]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="3" width="1086" height="15" backcolor="#70A9A9" uuid="5c23c67b-bb18-4094-a91e-feeaf102450a"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+				]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="3" width="148" height="15" uuid="bfac66ab-7a14-4583-a5ff-cf1bfd41d680"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="3" width="138" height="15" uuid="475dd3e6-a6bb-48d4-a909-b8b39516cd16"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bill No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="3" width="165" height="15" uuid="c8672eee-13e9-46af-aac6-f3fd9d989d88"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="3" width="151" height="15" uuid="3bfbb152-3fca-4079-af58-9d29e02f5740"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="611" y="3" width="141" height="15" uuid="6192e01a-2465-4f0c-89fa-ae7ac0a3667a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendor name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="893" y="3" width="141" height="15" uuid="41058331-bc32-44c1-8bdc-4da8005d2259"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Batch Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="752" y="3" width="141" height="15" uuid="17022fcc-e980-4606-82af-b94102be37d4"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Current Stock]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="1086" height="14" backcolor="#E5ECF9" uuid="df1172c6-9b75-49c0-9006-ce89508058c0"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+				]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="8" y="0" width="148" height="17" uuid="e62a80f2-d886-4a03-a474-cdcbf7a96ee7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{productName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="0" width="138" height="17" uuid="11cf83f7-a377-491c-866c-010df32a1d50"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{receiptNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="165" height="17" uuid="14edcbea-de21-4686-b4c1-c5f2cde3e236"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="0" width="152" height="17" uuid="1cd47490-1099-4bc8-a4e5-e03d167e1f9e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="611" y="0" width="141" height="14" uuid="64826ca9-ed05-47ae-8435-0103ec75d659"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vendorName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="752" y="0" width="141" height="14" uuid="c4a202d4-4075-45a5-b38b-aa7e0956af90"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{stock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="893" y="0" width="141" height="14" uuid="fc384fb5-a39d-4ef6-858f-cc608c47bb8a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{batchCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54"/>
+	</pageFooter>
+	<summary>
+		<band height="139">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="879" y="118" width="124" height="15" uuid="b9adcd6c-ae08-4306-be71-a90b86c3a38f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="752" y="118" width="115" height="15" uuid="59c83474-d7a0-4551-bf70-dc5d46dd6ba8"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="99" width="1091" height="4" uuid="3abe3ef3-1fb0-4fc6-b55e-0e5beb284923"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

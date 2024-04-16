@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" language="groovy" pageWidth="1150" pageHeight="595" orientation="Landscape" columnWidth="1110" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="878dfef0-a9df-4d0f-b556-b7aff9690bf9">
+	<property name="ireport.zoom" value="1.2100000000000275"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="totalItemDisc" class="java.lang.String"/>
+	<parameter name="totalNetAmount" class="java.lang.String"/>
+	<parameter name="totalSchmDisc" class="java.lang.String"/>
+	<parameter name="totalSplDisc" class="java.lang.String"/>
+	<parameter name="totalDisc" class="java.lang.String"/>
+	<parameter name="totalCd" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="vendorName" class="java.lang.String">
+		<fieldDescription><![CDATA[vendorName]]></fieldDescription>
+	</field>
+	<field name="vouNo" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="billDate" class="java.lang.String"/>
+	<field name="vouDate" class="java.lang.String"/>
+	<field name="purBillNo" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="splDisc" class="java.lang.String"/>
+	<field name="itemDisc" class="java.lang.String"/>
+	<field name="schmDisc" class="java.lang.String"/>
+	<field name="cd" class="java.lang.String"/>
+	<field name="productName" class="java.lang.String"/>
+	<title>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="21" width="491" height="20" uuid="ff173971-fdbe-47d3-9918-1afee69aaf7c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="0" y="52" width="158" height="20" forecolor="#736343" uuid="e8387bf3-6b43-495e-8ce7-e8a822b6dd6a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="158" y="52" width="68" height="20" uuid="7f177e44-1d73-4382-8e41-052eb495b0d9"/>
+				<textFieldExpression><![CDATA[$P{from}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="226" y="52" width="92" height="20" forecolor="#736343" uuid="6e07a77c-8142-4a84-8940-2afa06f15ebf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="318" y="52" width="111" height="20" uuid="9195eefd-a61e-4bd9-ae3d-ba946dc16d39"/>
+				<textFieldExpression><![CDATA[$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="429" y="0" width="62" height="15" forecolor="#736343" uuid="156f33cd-c3d6-4307-90a0-e9e2015bb8eb"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bill Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="491" y="0" width="119" height="15" forecolor="#736343" uuid="a7c0c099-0c15-4bcb-89d0-6fbdcd2eb871"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Party's Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="226" y="0" width="92" height="15" forecolor="#736343" uuid="fd526dfb-23dd-4a7f-9d78-a29feb2a64fc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vou Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="0" width="111" height="15" forecolor="#736343" uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bill No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="610" y="0" width="78" height="15" forecolor="#736343" uuid="42d127f7-b16d-4a00-b00b-dc6acbdedd07"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bill Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="158" height="15" forecolor="#736343" uuid="65b3240a-d14c-4afb-bae4-d091d63df031"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vou No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="0" width="68" height="15" forecolor="#736343" uuid="1546e341-fc36-4065-93cd-b306b95407ca"/>
+				<textElement>
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="688" y="0" width="78" height="15" forecolor="#736343" uuid="b6d96195-160f-44e3-892d-c9c0fc7d5262"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Item Disc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="767" y="0" width="78" height="15" forecolor="#736343" uuid="6e726829-50ca-4c5a-8de1-204f32d5f122"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Schm Disc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="845" y="0" width="78" height="15" forecolor="#736343" uuid="06d66ace-b5c6-428a-aa69-42cb2d146398"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[spl Disc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="923" y="0" width="79" height="15" forecolor="#736343" uuid="025a4e4a-3d89-4ec0-be1d-f3221b65d671"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[cd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1002" y="0" width="65" height="15" forecolor="#736343" uuid="4f1b9949-9969-409e-ab64-ec12f31e9433"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[product name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="129" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="1100" height="39" uuid="1f9cfa19-8525-4d44-8e2d-f79746acc230"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="318" y="0" width="111" height="15" uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{purBillNo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="429" y="0" width="62" height="15" uuid="8b6f8a47-7cef-455d-9aa5-87c8648e2c1f"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{billDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="491" y="0" width="119" height="15" uuid="c0744180-bb8d-4888-8c2a-7a6dd834caa8"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vendorName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="226" y="0" width="92" height="15" uuid="7cde823a-8bc4-4b50-8527-31acc74a4a7e"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vouDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="610" y="0" width="78" height="15" uuid="17a3f070-b9af-470f-a63c-ab83558df58f"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="0" width="158" height="15" uuid="ad8fc44a-2248-4e72-93af-781d3dcf508c"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{vouNo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="158" y="0" width="68" height="15" uuid="7bc53d56-70be-4668-a7d6-7e508c42c3b4"/>
+					<textElement>
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="688" y="0" width="78" height="15" uuid="c356cae7-b222-4fa1-a174-e4cad92af143"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{itemDisc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="766" y="0" width="78" height="15" uuid="ee7f60e5-c9d3-4545-9e81-ab1e6bfdb0b6"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{schmDisc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="845" y="0" width="78" height="15" uuid="2756f3a2-ffd7-4e26-8605-c9915d126a9c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{splDisc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="923" y="0" width="79" height="15" uuid="bfb4c156-c830-4d2b-b129-38e68b444482"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cd}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1002" y="0" width="65" height="15" uuid="5ce6df4a-fde4-411f-a372-e948bfaa067e"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{productName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="766" y="35" width="78" height="15" forecolor="#736343" backcolor="#70A9A9" uuid="084a03a2-5909-4f68-b626-e1863540d973"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Discount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="845" y="35" width="77" height="15" uuid="45382514-21d5-47dc-9154-f958d6521aa0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{totalDisc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="688" y="0" width="78" height="18" backcolor="#70A9A9" uuid="39eeead0-8b44-4d84-821f-c7f70a7363c7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalItemDisc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="766" y="0" width="78" height="18" backcolor="#70A9A9" uuid="3d5f0008-bfea-4297-b148-22f7677303ed"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalSchmDisc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="610" y="0" width="78" height="18" backcolor="#70A9A9" uuid="1cdddb27-6811-4c2b-8a90-dc93af3e6768"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalNetAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="844" y="0" width="77" height="18" backcolor="#70A9A9" uuid="7d49cb0e-4dd4-44e4-bbf9-70d6bf4bf59d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalSplDisc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="922" y="0" width="79" height="18" backcolor="#70A9A9" uuid="4253714b-b64b-4571-a53d-6604aa36a756"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{totalCd}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

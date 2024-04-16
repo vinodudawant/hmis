@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('git repo & clean') {
+            steps {
+               bat "rmdir  /s /q MAHAHIMS01"
+                bat "git clone https://github.com/s2iil-com/mahait/new/main/MAHAHIMS01"
+                bat "mvn clean -f MAHAHIMS01"
+            }
+        }
+        stage('install') {
+            steps {
+                bat "mvn install -f MAHAHIMS01"
+            }
+        }
+        stage('test') {
+            steps {
+                bat "mvn test -f MAHAHIMS01"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f MAHAHIMS01"
+            }
+        }
+    }
+}

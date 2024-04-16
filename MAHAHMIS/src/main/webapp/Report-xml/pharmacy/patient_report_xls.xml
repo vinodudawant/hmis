@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+	name="test" language="groovy" pageWidth="1000" pageHeight="595"
+	orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20"
+	topMargin="20" bottomMargin="20" uuid="878dfef0-a9df-4d0f-b556-b7aff9690bf9">
+	<property name="ireport.zoom" value="1.0" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<style name="Title" fontName="Times New Roman" fontSize="50"
+		isBold="true" pdfFontName="Times-Bold" />
+	<style name="SubTitle" forecolor="#736343" fontName="Arial"
+		fontSize="18" />
+	<style name="Column header" forecolor="#666666" fontName="Arial"
+		fontSize="12" isBold="true" />
+	<style name="Detail" fontName="Arial" fontSize="12" />
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3" />
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+  @n := @n+1 RowNumber,
+    pat_name
+FROM
+	(select @n := 0) initvars,
+ pharma_patient_master   ]]>
+	</queryString>
+	<field name="RowNumber" class="java.lang.Integer" />
+	<field name="pat_name" class="java.lang.String" />
+	<title>
+		<band height="93" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="adc4aee7-1715-4638-9e90-37fe155f305c"
+					style="Title" x="201" y="0" width="397" height="30" forecolor="#D1B48E" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="15" pdfFontName="Times-Roman" />
+				</textElement>
+				<text><![CDATA[Patient Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch" />
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="809" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" />
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<frame>
+				<reportElement uuid="1f9cfa19-8525-4d44-8e2d-f79746acc230"
+					style="Row" mode="Opaque" x="0" y="0" width="946" height="39" />
+				
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="809" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pat_name}]]></textFieldExpression>
+				</textField>
+				
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="c4bf73cf-ce40-45fc-ad37-00c657d8e0d9"
+						style="Detail" x="0" y="0" width="70" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RowNumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch" />
+	</summary>
+</jasperReport>

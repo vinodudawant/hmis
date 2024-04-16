@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test" language="groovy" pageWidth="1200" pageHeight="595" orientation="Landscape" columnWidth="1160" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="878dfef0-a9df-4d0f-b556-b7aff9690bf9">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="925"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="from" class="java.lang.String"/>
+	<parameter name="to" class="java.lang.String"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="vat55" class="java.lang.String"/>
+	<parameter name="vat125" class="java.lang.String"/>
+	<parameter name="vat0" class="java.lang.String"/>
+	<parameter name="net" class="java.lang.String"/>
+	<parameter name="tax55" class="java.lang.String"/>
+	<parameter name="tax12" class="java.lang.String"/>
+	<parameter name="tax0" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="patientId" class="java.lang.String">
+		<fieldDescription><![CDATA[patientId]]></fieldDescription>
+	</field>
+	<field name="patientName" class="java.lang.String">
+		<fieldDescription><![CDATA[patientName]]></fieldDescription>
+	</field>
+	<field name="patientNetAmt" class="java.lang.String">
+		<fieldDescription><![CDATA[patientNetAmt]]></fieldDescription>
+	</field>
+	<field name="patientAmtReceive" class="java.lang.String">
+		<fieldDescription><![CDATA[patientAmtReceive]]></fieldDescription>
+	</field>
+	<field name="patientTax55" class="java.lang.String">
+		<fieldDescription><![CDATA[patientTax55]]></fieldDescription>
+	</field>
+	<field name="patientTax12" class="java.lang.String"/>
+	<field name="patientTax0" class="java.lang.String"/>
+	<field name="patientTransType" class="java.lang.String"/>
+	<field name="patientAmtBal" class="java.lang.String"/>
+	<field name="patientSaleDate" class="java.lang.String"/>
+	<field name="drugName" class="java.lang.String"/>
+	<field name="doctorName" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="patientAddress" class="java.lang.String"/>
+	<field name="taxable55" class="java.lang.String"/>
+	<field name="taxable12" class="java.lang.String"/>
+	<field name="taxable0" class="java.lang.String"/>
+	<title>
+		<band height="94" splitType="Stretch">
+			<textField>
+				<reportElement x="26" y="21" width="410" height="20" uuid="ff173971-fdbe-47d3-9918-1afee69aaf7c"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="26" y="58" width="62" height="15" forecolor="#736343" uuid="1dfc2d45-3710-4f56-b436-e440838d88cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="157" y="58" width="87" height="35" uuid="9007250d-2de8-46f0-97f6-679f58d9ffae"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From-->"+$P{from}+"- To-->>"+$P{to}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="26" y="0" width="62" height="15" forecolor="#736343" uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Bill Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="157" y="0" width="87" height="15" forecolor="#736343" uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="244" y="0" width="96" height="15" forecolor="#736343" uuid="60201b09-39d5-4480-8804-876040877e63"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Net Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="340" y="0" width="96" height="15" forecolor="#736343" uuid="ee018fa1-b231-44c2-8bda-14d9dfab68d5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Cash Receive]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="436" y="0" width="76" height="15" forecolor="#736343" uuid="920ed222-92ce-431e-bdb2-52706c3d7969"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vat 6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="627" y="0" width="85" height="15" forecolor="#736343" uuid="24f853a0-5be8-4604-904a-10fa58fe0c9b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vat 13.5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="88" y="0" width="69" height="15" forecolor="#736343" uuid="f8d69177-87b4-489e-8372-8231181b95f0"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="1063" y="0" width="97" height="15" forecolor="#736343" uuid="3a5b2d79-f242-4159-8674-72deafdfa89c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Transation Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="973" y="0" width="90" height="15" forecolor="#736343" uuid="dd1c6ea0-90c0-43b4-bf5d-848f0c06894b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Pending Amt]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="794" y="0" width="82" height="15" forecolor="#736343" uuid="46ad9f3d-c86a-48d1-bec3-eded264b591f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Vat 0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="712" y="0" width="82" height="14" forecolor="#736343" uuid="7d3afe76-2b9a-4faf-aeb2-5a5b24d2f4d8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Taxable 13.5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="512" y="0" width="115" height="15" forecolor="#736343" uuid="e0a3e7e0-bdd1-49c4-8186-0814a0a336c8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Taxable 6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="876" y="0" width="97" height="15" forecolor="#736343" uuid="33a1f862-35a8-4aa2-a60e-b4152fb64ddf"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Taxable 0]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="1160" height="33" uuid="1f9cfa19-8525-4d44-8e2d-f79746acc230"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="157" y="0" width="87" height="15" uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="26" y="0" width="62" height="15" uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientId}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="244" y="0" width="96" height="15" uuid="8f686521-dcb5-43eb-9f6e-4808bf5cfb0a"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientNetAmt}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="436" y="0" width="76" height="15" uuid="8aa1652f-648f-4611-ab37-510a10acaf6c"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientTax55}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="627" y="0" width="85" height="15" uuid="f23b806f-c62a-4ad4-8c0b-c37d06dc3859"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientTax12}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="794" y="0" width="82" height="15" uuid="857874b0-f3b2-4ac5-bd90-5eaaac4cc07d"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientTax0}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="973" y="0" width="90" height="15" uuid="cd80928e-843a-4908-9e18-1b0179343c7b"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientAmtBal}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="88" y="0" width="69" height="15" uuid="4fc400e6-800e-41a2-b1f0-17d4007ab0f1"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientSaleDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="340" y="0" width="96" height="15" uuid="b1160045-d972-42ee-9031-04dd2959dcb0"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientAmtReceive}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="1063" y="0" width="97" height="15" uuid="95754164-30a8-41de-b483-365536e115f9"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{patientTransType}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="876" y="0" width="97" height="15" uuid="620a8557-2f2f-476d-8874-a59a6494e4ae"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{taxable0}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="712" y="0" width="82" height="15" uuid="9733b01c-ef12-4c60-8b0f-0eb55f6ee7f7"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{taxable12}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="512" y="0" width="115" height="15" uuid="ae11d64c-16bf-42f3-9e2d-d0059321f213"/>
+					<textElement textAlignment="Right">
+						<font fontName="Times New Roman" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{taxable55}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50">
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="436" y="10" width="76" height="15" uuid="74c8ca02-96a5-4857-9f75-06cbc0090bec"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat55}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="627" y="10" width="85" height="15" uuid="b8110ab5-fe4e-47dd-8164-13440cb0a6c9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat125}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="794" y="10" width="82" height="15" uuid="b0c83ee2-1395-4759-b152-ed4cbfa0eb91"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{vat0}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="244" y="10" width="96" height="15" uuid="57fbd92f-811b-415f-accd-01cbeb15de3a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{net}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" mode="Opaque" x="157" y="10" width="87" height="15" forecolor="#736343" backcolor="#70A9A9" uuid="65d52fcb-6aea-4aad-ae12-51b695b96a09"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="512" y="10" width="115" height="15" uuid="0e1c5772-67b2-4004-8103-35c0ce964e8c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tax55}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="712" y="10" width="82" height="15" uuid="e0d9556f-89ab-4e3c-9fa9-3f2fedc7551c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tax12}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="876" y="10" width="97" height="15" uuid="98319d02-5a47-4747-96a2-591a78757696"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tax0}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

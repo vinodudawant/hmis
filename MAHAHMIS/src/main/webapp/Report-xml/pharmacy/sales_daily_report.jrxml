@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="jasper_report_template" pageWidth="1200" pageHeight="842" columnWidth="1100" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" isSummaryNewPage="true" isSummaryWithPageHeaderAndFooter="true" uuid="e872fd6b-3d78-47d0-85be-93ef7b4533e6">
+	<property name="ireport.zoom" value="1.0000000000000009"/>
+	<property name="ireport.x" value="264"/>
+	<property name="ireport.y" value="0"/>
+	
+	<parameter name="ReportTitle" class="java.lang.String">
+		<parameterDescription><![CDATA[ReportTitle]]></parameterDescription>
+	</parameter>
+	
+	<field name="vouNo" class="java.lang.String"/>
+	<field name="patientName" class="java.lang.String"/>
+	<field name="vendorAddress" class="java.lang.String"/>
+	<field name="amount" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="transType" class="java.lang.String"/>
+	<field name="amtReceive" class="java.lang.String"/>
+	<field name="amtBalance" class="java.lang.String"/>
+	<field name="openingStock" class="java.lang.String"/>
+	<field name="currentAmtBal" class="java.lang.String"/>
+	
+	<variable name="creditTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{transType}.equals("Credit")?Double.valueOf($F{amount}):new BigDecimal(0.00)]]></variableExpression>
+		<initialValueExpression><![CDATA[Double.valueOf($F{amount})]]></initialValueExpression>
+	</variable>
+	<variable name="cashTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{transType}.equals("cash")?Double.valueOf($F{amount}):new BigDecimal(0.00)]]></variableExpression>
+		<initialValueExpression><![CDATA[Double.valueOf($F{amount})]]></initialValueExpression>
+	</variable>
+	<variable name="amtReceiveTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{transType}.equals("cash")?Double.valueOf($F{amtReceive}):new BigDecimal(0.00)]]></variableExpression>
+		<initialValueExpression><![CDATA[Double.valueOf($F{amtReceive})]]></initialValueExpression>
+	</variable>
+	<variable name="amtBalanceTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{transType}.equals("cash")?Double.valueOf($F{amtBalance}):new BigDecimal(0.00)]]></variableExpression>
+		<initialValueExpression><![CDATA[Double.valueOf($F{amtBalance})]]></initialValueExpression>
+	</variable>
+	<variable name="currentAmtBalTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{transType}.equals("cash")?(Double.valueOf($F{amount})-Double.valueOf($F{amtReceive})):new BigDecimal(0.00)]]></variableExpression>
+		<initialValueExpression><![CDATA[Double.valueOf($F{currentAmtBal})]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="55" y="10" width="870" height="30" uuid="ff69adfd-d05b-4813-9584-3813bd8cc4be"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}+" ("+$F{date}+")"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+		<staticText>
+				<reportElement mode="Opaque" x="0" y="3" width="1060" height="15" backcolor="#70A9A9" uuid="e821d99b-afd2-4fd8-a118-4afe8e55be6a"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+				]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="3" width="76" height="15" uuid="4e8e2dd1-de0c-488b-b9cc-67207d0df766"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pt. Cat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3" width="68" height="15" uuid="d47d4f02-28ad-4eb3-b3be-446f45e2a263"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="6" width="175" height="15" uuid="91bbe64e-47cc-4bbd-be98-1289df9985d1"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="6" width="194" height="15" uuid="cdcdf148-475f-4c43-88af-bf55fce8277c"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="3" width="76" height="18" uuid="a1ee1d61-77f9-40db-bf67-2302df2fdc2e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="746" y="3" width="76" height="15" uuid="a673fb24-02fe-4082-b562-76af4f463ee2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="833" y="6" width="73" height="15" uuid="b3c74973-6f32-4763-9b68-e22da1321812"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt Recd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="993" y="3" width="65" height="15" uuid="75769984-5f42-41e5-b749-107130759c39"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Bal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="920" y="6" width="61" height="15" uuid="cb9be470-4ce9-4e45-ae0d-ff8ac0da764b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Curr Bal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="661" y="6" width="66" height="15" uuid="c1b29d56-17e0-43f1-9d85-9ec5d55db7ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Credit]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="2" width="101" height="15" uuid="9f8ba0d9-cfbc-4f65-add9-e1b9ae4d1c09"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vouNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="598" y="2" width="48" height="15" uuid="9b952cf7-632c-4fe1-9d49-fadd8cf675ec"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{openingStock}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="2" width="175" height="15" uuid="ccf59f57-9f8a-4cf9-b22a-af1f35e4908e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{patientName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="358" y="2" width="222" height="15" uuid="967ae0c2-2010-400f-a25c-d38338be12a3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vendorAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="2" width="76" height="15" uuid="0249de77-ff61-4099-b189-458d96718131"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="661" y="2" width="66" height="15" uuid="6d941e48-5e88-4295-bff5-350fb1982450"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transType}.equals("Credit")?$F{amount}:new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="746" y="2" width="76" height="15" uuid="7bab1ade-6cfa-49bc-9f4e-906717458594"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transType}.equals("cash")?$F{amount}:new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="833" y="2" width="87" height="15" uuid="81cb4400-294f-4a26-9c1d-70f699d6d25a"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{transType}.equals("cash")? $F{amtReceive} : new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="920" y="2" width="61" height="15" uuid="563178f9-a390-44e4-bc31-a134feda4c3d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transType}.equals("cash")?$F{currentAmtBal}:new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="993" y="2" width="65" height="15" uuid="82a9004c-5217-4e6e-910f-3a26c7c508d9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{transType}.equals("cash")?$F{amtBalance}:new BigDecimal(0.00)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50"/>
+	</lastPageFooter>
+	<summary>
+		<band height="50">
+			<textField>
+				<reportElement mode="Opaque" x="757" y="19" width="65" height="18" backcolor="#70A9A9" uuid="9b351210-c77c-4f6f-8db9-c7e7776c21e4"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{cashTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="666" y="19" width="61" height="18" backcolor="#70A9A9" uuid="8335cd4e-fc1f-4b21-83ca-d90ce429eb3d"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{creditTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="833" y="19" width="73" height="18" backcolor="#70A9A9" uuid="d7acfc8e-9577-48c5-baa2-109f37a6a426"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{amtReceiveTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="920" y="19" width="61" height="18" backcolor="#70A9A9" uuid="7da3e56e-7a9c-42a0-bf87-cbcc1a82e277"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{currentAmtBalTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="570" y="19" width="76" height="18" backcolor="#70A9A9" uuid="4dea0dd9-8768-4ac7-ae2a-dd8b99c05552"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="993" y="19" width="65" height="18" backcolor="#70A9A9" uuid="0e8bd2e3-ddec-490a-8c27-85b7d8dbd00a"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{amtBalanceTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

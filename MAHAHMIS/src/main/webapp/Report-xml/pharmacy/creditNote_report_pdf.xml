@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+	name="test" language="groovy" pageWidth="1000" pageHeight="595"
+	orientation="Landscape" columnWidth="960" leftMargin="20" rightMargin="20"
+	topMargin="20" bottomMargin="20" uuid="878dfef0-a9df-4d0f-b556-b7aff9690bf9">
+	<property name="ireport.zoom" value="1.0" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<style name="Title" fontName="Times New Roman" fontSize="50"
+		isBold="true" pdfFontName="Times-Bold" />
+	<style name="SubTitle" forecolor="#736343" fontName="Arial"
+		fontSize="18" />
+	<style name="Column header" forecolor="#666666" fontName="Arial"
+		fontSize="12" isBold="true" />
+	<style name="Detail" fontName="Arial" fontSize="12" />
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3" />
+		</conditionalStyle>
+	</style>
+	<parameter name="ts1" class="java.lang.String"/>
+	<parameter name="ts2" class="java.lang.String"/>
+	<queryString>
+			<![CDATA[SELECT
+@n := @n+1 RowNumber,
+pharma_credit_note_master.credit_note_doc_no,
+pharma_credit_note_master.credit_note_date,
+pharma_credit_note_master.credit_note_patient_name,
+pharma_credit_note_master.credit_note_patient_address,
+pharma_product_master.product_name,
+pharma_credit_note_slave.credit_note_slave_amt
+FROM
+(select @n := 0) initvars,
+pharma_credit_note_master
+inner join pharma_credit_note_slave on  pharma_credit_note_master.credit_note_id=pharma_credit_note_slave.credit_note_slave_master_id
+inner join pharma_product_master on  pharma_product_master.product_id=pharma_credit_note_slave.credit_note_slave_product_id
+ where credit_note_date between $P{ts1} and $P{ts2} and credit_note_delete_flag=0;]]>
+	</queryString>
+	<field name="RowNumber" class="java.lang.Integer" />
+	<field name="credit_note_doc_no" class="java.lang.String" />
+	<field name="credit_note_date" class="java.lang.String" />
+	<field name="credit_note_patient_name" class="java.lang.String" />
+    <field name="credit_note_patient_address" class="java.lang.String" />
+    <field name="product_name" class="java.lang.String" />
+    <field name="credit_note_slave_amt" class="java.lang.Integer" />
+	<group name="reg_date">
+		<groupExpression><![CDATA[$F{credit_note_doc_no}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement uuid="6a8b18af-5ecc-49f7-afc0-5de1629f8597"
+						mode="Opaque" x="-21" y="7" width="980" height="24" forecolor="#B89F7D"
+						backcolor="#F2EBDF" />
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="adc4aee7-1715-4638-9e90-37fe155f305c"
+					style="Title" x="270" y="0" width="263" height="30" forecolor="#D1B48E" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="15" pdfFontName="Times-Roman" />
+				</textElement>
+				<text><![CDATA[Credit Note List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch" />
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+             <staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="100" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vou No]]></text>
+			</staticText>
+						
+			<staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="250" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			
+			<staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="350" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="450" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Patient Address]]></text>
+			</staticText>
+          <staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="550" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+            <staticText>
+				<reportElement uuid="fd513f84-2495-4ae5-8a33-1bb596cdb999"
+					style="Column header" x="650" y="1" width="137" height="15"
+					forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64ddcb47-b9ef-4fb2-b4ce-b2e28c3e788b"
+					style="Column header" x="0" y="0" width="46" height="15" forecolor="#736343" />
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SR NO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<frame>
+				<reportElement uuid="1f9cfa19-8525-4d44-8e2d-f79746acc230"
+					style="Row" mode="Opaque" x="1" y="0" width="958" height="39" />
+
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="100" y="0" width="150" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{credit_note_doc_no}]]></textFieldExpression>
+				</textField>
+				
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="250" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{credit_note_date}]]></textFieldExpression>
+				</textField>
+				
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="350" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{credit_note_patient_name}]]></textFieldExpression>
+				</textField>
+
+                   	<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="450" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{credit_note_patient_address}]]></textFieldExpression>
+				</textField>
+
+                 	<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="550" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+				</textField>
+
+                 	<textField isStretchWithOverflow="true">
+					<reportElement uuid="69d8ece0-5965-49e7-b029-c4f53ccc02cf"
+						style="Detail" x="650" y="0" width="137" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{credit_note_slave_amt}]]></textFieldExpression>
+				</textField>
+
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="2be09b69-dd3c-4e14-a289-f6368b1d2810"
+						style="Detail" x="0" y="0" width="46" height="15" />
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="11" />
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RowNumber}]]></textFieldExpression>
+				</textField>
+			</frame>
+
+
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement uuid="e5cbdd6e-6ea5-40eb-bee0-dcb24f10bc65"
+					positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999" />
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="01c292c5-b16a-4c11-b3d0-e0a0ae74e4bf"
+					mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E"
+					backcolor="#F2EBDF" />
+				<textField evaluationTime="Report">
+					<reportElement uuid="c416a0ee-f1a6-4620-ad51-968d7653cfe1"
+						style="Column header" x="783" y="1" width="40" height="20"
+						forecolor="#736343" />
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false" />
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="02f4f456-9a5a-4fac-94c8-220056cded49"
+						style="Column header" x="703" y="1" width="80" height="20"
+						forecolor="#736343" />
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false" />
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="da0e324a-6995-4e3a-9011-4876e5e5790e"
+						style="Column header" x="22" y="1" width="197" height="20"
+						forecolor="#736343" />
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false" />
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch" />
+	</summary>
+</jasperReport>
